@@ -1,16 +1,18 @@
 package com.example.music_deezerapi
 
 import android.app.Activity
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.squareup.picasso.Picasso
 
-class MyAdapter(val context : Activity , val dataList : List<Data>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
+class MyAdapter(val context : Context , val dataList : List<Data>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
 
     private lateinit var myListener: onItemClickListener
     interface onItemClickListener {

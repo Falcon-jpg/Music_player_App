@@ -1,11 +1,13 @@
 package com.example.music_deezerapi
 
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.SeekBar
 import androidx.core.net.toUri
+import androidx.lifecycle.ViewModelProvider
 import com.example.music_deezerapi.databinding.ActivityEachMusicBinding
 import com.squareup.picasso.Picasso
 
@@ -19,8 +21,8 @@ class EachMusic : AppCompatActivity() {
         binding = ActivityEachMusicBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val name = intent.getStringExtra("title")
-        val image = intent.getStringExtra("image")
+        val name = intent.getStringExtra("title")!!
+        val image = intent.getStringExtra("image")!!
         val link = intent.getStringExtra("link")!!
 
         binding.name.text = name
@@ -65,6 +67,21 @@ class EachMusic : AppCompatActivity() {
             }
         }
         handler.postDelayed(runnable, 0)
+
+
+        val likedSongsViewModel = ViewModelProvider(this)[LikedSongViewModel::class.java]
+        binding.switch1.setOnCheckedChangeListener{ buttonView, isChecked ->
+            // React to switch state change
+            val song = LikedSong(name, image)
+            if (isChecked) {
+                // Switch is checked
+                // Do something
+                likedSongsViewModel.addLikedSong(song)
+            }else{
+                likedSongsViewModel.removeLikedSong(song)
+            }
+
+        }
     }
 
     override fun onDestroy() {
