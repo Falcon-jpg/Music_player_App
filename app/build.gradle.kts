@@ -51,5 +51,6 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.10.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.squareup.picasso:picasso:2.8")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
 
 }

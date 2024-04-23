@@ -69,20 +69,7 @@ class EachMusic : AppCompatActivity() {
         handler.postDelayed(runnable, 0)
 
 
-        val likedSongsViewModel = ViewModelProvider(this)[LikedSongViewModel::class.java]
-        binding.switch1.setOnCheckedChangeListener{ buttonView, isChecked ->
-            // React to switch state change
-            val song = LikedSong(name, image)
-            if (isChecked) {
-                // Switch is checked
-                // Do something
-                likedSongsViewModel.addLikedSong(song)
-            }else{
-                likedSongsViewModel.removeLikedSong(song)
-            }
-
         }
-    }
 
     override fun onDestroy() {
         super.onDestroy()
