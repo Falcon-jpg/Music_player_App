@@ -52,5 +52,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.squareup.picasso:picasso:2.8")
     implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+
 
 }

@@ -68,8 +68,6 @@ class MyAdapter(val context : Context , val dataList : List<Data> , val db : Dat
             }else{
             db.deleteSong(song)
                 Toast.makeText(context,"Removed from Liked Song",Toast.LENGTH_SHORT).show()
-
-
             }
 
         }

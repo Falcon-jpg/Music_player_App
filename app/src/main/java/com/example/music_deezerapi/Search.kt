@@ -4,17 +4,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.music_deezerapi.ApiInterface
 import com.example.music_deezerapi.Database
 import com.example.music_deezerapi.EachMusic
-import com.example.music_deezerapi.Home
-import com.example.music_deezerapi.LikedSong
 import com.example.music_deezerapi.MyAdapter
 import com.example.music_deezerapi.MyData
 import com.example.music_deezerapi.databinding.SearchBinding
+import com.facebook.shimmer.R
+import com.facebook.shimmer.ShimmerFrameLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -80,11 +81,24 @@ class Search : Fragment(){
                     }
 
                 })
+
+                binding.shimmerViewContainer.stopShimmer()
+                binding.shimmerViewContainer.isVisible = false
             }
 
             override fun onFailure(call: Call<MyData?>, t: Throwable) {
                 Log.d("Error", "onFailure" + t.message)
             }
         })
+    }
+
+    override fun onResume(){
+        super.onResume()
+        binding.shimmerViewContainer.startShimmer()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.shimmerViewContainer.stopShimmer()
     }
 }
