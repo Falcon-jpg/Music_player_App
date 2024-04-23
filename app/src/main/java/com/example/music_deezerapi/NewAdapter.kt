@@ -13,12 +13,22 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.squareup.picasso.Picasso
 
 class NewAdapter(private val context: Context, private var likedSongs: List<LikedSong>) : RecyclerView.Adapter<NewAdapter.LikedSongViewHolder>() {
+    private lateinit var myListener: onItemClickListener
+    interface onItemClickListener {
+        fun onItemClick(position: Int)
+    }
+    fun setOnItemClickListener(listener: onItemClickListener){
+        myListener = listener
+    }
 
-    class LikedSongViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+    class LikedSongViewHolder(itemView : View , listener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
         val img1 : ImageView
         val name1 : TextView
 
         init{
+            itemView.setOnClickListener(){
+                listener.onItemClick(adapterPosition)
+            }
             img1 = itemView.findViewById(R.id.music_image)
             name1 = itemView.findViewById(R.id.textView)
         }
@@ -27,7 +37,7 @@ class NewAdapter(private val context: Context, private var likedSongs: List<Like
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LikedSongViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.llikedsongrow, parent, false)
-        return LikedSongViewHolder(itemView)
+        return LikedSongViewHolder(itemView,myListener)
     }
 
     override fun onBindViewHolder(holder: LikedSongViewHolder, position: Int) {

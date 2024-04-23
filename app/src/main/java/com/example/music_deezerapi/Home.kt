@@ -1,5 +1,6 @@
 package com.example.music_deezerapi
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,6 +36,18 @@ class Home : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         adapter = NewAdapter(requireContext(),db.getSongs())
         recyclerView.adapter = adapter
+
+        adapter.setOnItemClickListener(object : NewAdapter.onItemClickListener {
+            override fun onItemClick(position: Int) {
+                val song = db.getSongs()[position]
+                //on clicking each item, what action do you want to perform
+                val intent = Intent(this@Home.requireContext(), EachMusic::class.java)
+                intent.putExtra("title",song.name)
+                intent.putExtra("image",song.image)
+                intent.putExtra("link",song.link)
+                startActivity(intent)
+            }
+        })
 
     }
 

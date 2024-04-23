@@ -12,9 +12,9 @@ import com.example.music_deezerapi.databinding.ActivityEachMusicBinding
 import com.squareup.picasso.Picasso
 
 class EachMusic : AppCompatActivity() {
-    lateinit var binding : ActivityEachMusicBinding
-    lateinit var handler: Handler
-    lateinit var runnable: Runnable
+    private lateinit var binding : ActivityEachMusicBinding
+    private lateinit var handler: Handler
+    private lateinit var runnable: Runnable
     lateinit var mediaPlayer: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

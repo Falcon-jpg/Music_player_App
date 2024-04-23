@@ -62,7 +62,7 @@ class MyAdapter(val context : Context , val dataList : List<Data> , val db : Dat
         Picasso.get().load(currData.album.cover).into(holder.image)
 
         holder.like.setOnCheckedChangeListener{ _, isChecked ->
-            val song = LikedSong(currData.title, currData.album.cover , currData.artist.name)
+            val song = LikedSong(currData.title, currData.album.cover , currData.artist.name, currData.preview)
             if(isChecked){
             db.insertSong(song , context)
             }else{
