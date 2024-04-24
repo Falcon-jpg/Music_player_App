@@ -21,6 +21,10 @@ class EachMusic : AppCompatActivity() {
         binding = ActivityEachMusicBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val bg = arrayOf(R.drawable.bg_gold,R.drawable.flowers,R.drawable.black_walls,R.drawable.waves)
+        val bgNum = bg.random()
+        binding.mainll.setBackgroundResource(bgNum)
+
         val artist = intent.getStringExtra("artist")!!
         val name = intent.getStringExtra("title")!!
         val image = intent.getStringExtra("image")!!
