@@ -1,23 +1,38 @@
-###Music Player APP
+### Music Player APP
 
-##It uses Deezer API from Rapid API to fetch musics. The music is displayed on search operation.
+This application utilizes the Deezer API from Rapid API to fetch music. Users can search for songs or artists, view a list of liked songs, and play music within the app.
 
-#App launches with Home fragmnet which displays all the liked songs. It has been acheived by using SQLite database which stores the data of liked songs.
-![img 7](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/12e56637-7734-4bf2-8f12-07e7d7c78051)
+#### Home Fragment
 
-#One can unlike the song by clicking on the heart button.
-![new](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/484e989a-a564-4988-b8aa-c2c77f22efd4)
+The Home fragment displays all the liked songs. Liked songs are stored in a SQLite database.
+
+![Home Fragment](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/12e56637-7734-4bf2-8f12-07e7d7c78051)
+
+Users can unlike a song by clicking on the heart button.
+
+![Unlike Song](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/484e989a-a564-4988-b8aa-c2c77f22efd4)
+
+#### Search Fragment
+
+The Search fragment contains a search box where users can search for an artist or song. A shimmer layout is displayed until the data is fetched via Retrofit.
+
+![Search Fragment](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/6baed04e-f8aa-410e-aec2-240bf13b98fe)
+
+The fetched song list is displayed using a RecyclerView. Users can like/dislike songs here.
+
+![Song List](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/7c1ffa4e-ddc7-4c9c-bc9a-a74e063fbccd)
+
+#### Song Details
+
+Each song displays its liked status. If liked, the status is set to **true**.
+
+![Liked Song](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/03056702-7e3c-4e5d-9b26-73b81cdf8e2c)
+
+#### Media Player
+
+Clicking on a song from the Search or Home fragment opens the media player, where users can listen to the selected song.
+
+![Media Player](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/3c19bf06-4007-4876-bcdb-8699ac09087f)
 
 
-#Search fragmnet contains the search box , once a user searches for an artist / song , shimmer layout till the data is fetched via Retrofit.
-![img4](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/6baed04e-f8aa-410e-aec2-240bf13b98fe)
-
-#Fetched song list is diplayed using a recycler view. User can also like/dislike song here.
-![img3](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/7c1ffa4e-ddc7-4c9c-bc9a-a74e063fbccd)
-
-#Song wiht liked status = **true**
-![img1](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/03056702-7e3c-4e5d-9b26-73b81cdf8e2c)
-
-#On clicking songs from Search / Home fragmnet it opens the media player where one can listen to song.
-![img2](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/3c19bf06-4007-4876-bcdb-8699ac09087f)
 
