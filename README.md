@@ -3,4 +3,7 @@
 
 ![img6](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/ae4eede4-33f0-44de-b9f3-bdd477c6d0ec)
 
+![img6](https://github.com/Falcon-jpg/Music_player_App/assets/109679302/960b071c-200c-47d5-ba1c-d1fe927e1729)
+
+
 
