@@ -1,6 +1,12 @@
 ### Music Player APP
 
-This application utilizes the Deezer API from Rapid API to fetch music. Users can search for songs or artists, view a list of liked songs, and play music within the app.
+Welcome to our Music Player App, where your favorite tunes are just a click away! Powered by Retrofit, our app seamlessly integrates with the Deezer API from Rapid API, offering a vast library of songs at your fingertips.
+
+With a sleek and intuitive interface, users can effortlessly search for their beloved artists or tracks. But that's just the beginning! Our app goes beyond mere playback - users have the power to curate their personal playlists by liking songs, a feature seamlessly managed through SQLite integration.
+
+In the Home fragment, users can revisit their liked songs, creating a musical journey that evolves with their tastes. And when the urge to immerse oneself in melody strikes, a simple tap on any song transforms the screen into a dynamic media player, ready to serenade you with your chosen tunes.
+
+Experience the joy of music like never before with our Music Player App. Your playlist, your way - start listening today!
 
 #### Home Fragment
 
