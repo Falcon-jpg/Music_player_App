@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,11 +48,17 @@ class Search : Fragment(){
             .build()
             .create(ApiInterface::class.java)
 
-        fetchData(retrofit, "taylor swift")
+        /*fetchData(retrofit, "taylor swift")*/
 
         binding.imageButton.setOnClickListener {
             val text = binding.etID.text.toString()
-            fetchData(retrofit, text)
+            if(text=="") {
+                Toast.makeText(context,"Enter your song/artist",Toast.LENGTH_SHORT).show()
+            }else{
+                binding.shimmerViewContainer.isVisible = true
+                fetchData(retrofit, text)
+            }
+
         }
 
 
@@ -84,6 +91,7 @@ class Search : Fragment(){
 
                 binding.shimmerViewContainer.stopShimmer()
                 binding.shimmerViewContainer.isVisible = false
+                binding.recView.visibility = View.VISIBLE
             }
 
             override fun onFailure(call: Call<MyData?>, t: Throwable) {

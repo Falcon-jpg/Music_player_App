@@ -17,7 +17,6 @@ class Home : Fragment() {
     private lateinit var adapter: NewAdapter
     private lateinit var db : Database
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +33,7 @@ class Home : Fragment() {
 
         recyclerView = view.findViewById(R.id.recView1)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = NewAdapter(requireContext(),db.getSongs())
+        adapter = NewAdapter(requireContext(),db.getSongs(),db)
         recyclerView.adapter = adapter
 
         adapter.setOnItemClickListener(object : NewAdapter.onItemClickListener {

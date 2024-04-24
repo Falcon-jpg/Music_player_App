@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/recView">
+        >
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_margin="10dp"
@@ -54,6 +54,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:orientation="vertical"
+        android:visibility="gone"
         >
 
         <!-- Adding 7 rows of placeholders -->
@@ -75,6 +76,7 @@
         android:id="@+id/recView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

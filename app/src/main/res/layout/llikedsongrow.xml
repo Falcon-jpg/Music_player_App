@@ -25,14 +25,25 @@
             app:civ_border_color="#FF000000"/>
 
 
-            <TextView
-                android:id="@+id/textView"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Song Name" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Song Name" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_gravity="center"
+            android:id="@+id/lottie"
+            app:lottie_rawRes="@raw/dislike"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"/>
 
         </LinearLayout>
 

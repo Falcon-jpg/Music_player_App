@@ -48,17 +48,16 @@
                 android:text="Artist" />
         </LinearLayout>
 
-       <com.google.android.material.switchmaterial.SwitchMaterial
-           android:id="@+id/like"
-           app:thumbTint="#BD134F"
-           app:trackTint="#F493B1"
-           android:layout_width="50dp"
-           android:layout_height="40dp"
-           android:layout_marginStart="20dp"
-           android:layout_gravity="center"
-           android:textColor="#BC1313"
-
-           />
+        <ToggleButton
+            android:layout_marginStart="40dp"
+            android:layout_gravity="center"
+            android:id="@+id/heart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/toggle_selector"
+            android:button="@null"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

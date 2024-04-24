@@ -4,9 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.widget.Toast
-import androidx.core.content.contentValuesOf
-import kotlin.coroutines.coroutineContext
 
 class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null, DATABASE_VERSION) {
 
@@ -91,6 +88,25 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,null,
         cursor.close()
         db.close()
         return songList
+    }
+
+    fun status(name : String , artist : String) : List<LikedSong>{
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_TITLE =? AND $COLUMN_ARTIST =?"
+        val cursor = db.rawQuery(query, arrayOf(name,artist))
+
+        val song1 = mutableListOf<LikedSong>()
+        while(cursor.moveToFirst()) {
+            val name1 = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+            val image = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_IMAGE))
+            val artist2 = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_ARTIST))
+            val link = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_LINK))
+
+            song1.add(LikedSong(name, image, artist, link))
+        }
+        cursor.close()
+        db.close()
+        return song1
     }
 
 

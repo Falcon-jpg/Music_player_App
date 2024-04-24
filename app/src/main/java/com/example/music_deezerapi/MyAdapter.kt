@@ -18,7 +18,10 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.squareup.picasso.Picasso
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 class MyAdapter(val context : Context , val dataList : List<Data> , val db : Database) : RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
     private lateinit var myListener: onItemClickListener
 
@@ -33,17 +36,31 @@ class MyAdapter(val context : Context , val dataList : List<Data> , val db : Dat
             val image : ImageView
             val songName : TextView
             val artist : TextView
-            val like : SwitchMaterial
+            val status : ToggleButton
 
             init{
                 itemVIew.setOnClickListener(){
                     listener.onItemClick(adapterPosition)
                 }
-                like = itemVIew.findViewById(R.id.like)
+                status = itemVIew.findViewById(R.id.heart)
                 image = itemVIew.findViewById(R.id.music_image)
                 songName = itemVIew.findViewById(R.id.textView)
                 artist = itemVIew.findViewById(R.id.textView2)
             }
+    }
+
+    private val likedSongs: MutableSet<Pair<String, String>> = mutableSetOf()
+
+    init {
+        preloadLikedSongs()
+    }
+
+    private fun preloadLikedSongs() {
+        val likedSongsList = db.getSongs()
+        likedSongs.clear()
+        likedSongsList.forEach { song ->
+            likedSongs.add(Pair(song.name, song.artist))
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -61,7 +78,11 @@ class MyAdapter(val context : Context , val dataList : List<Data> , val db : Dat
         holder.artist.text = currData.artist.name
         Picasso.get().load(currData.album.cover).into(holder.image)
 
-        holder.like.setOnCheckedChangeListener{ _, isChecked ->
+        val isLiked = likedSongs.contains(Pair(currData.title, currData.artist.name))
+        holder.status.setOnCheckedChangeListener(null)
+        holder.status.isChecked = isLiked
+
+        holder.status.setOnCheckedChangeListener{ _, isChecked ->
             val song = LikedSong(currData.title, currData.album.cover , currData.artist.name, currData.preview)
             if(isChecked){
             db.insertSong(song , context)
