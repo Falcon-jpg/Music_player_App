@@ -41,6 +41,7 @@ class Home : Fragment() {
                 val song = db.getSongs()[position]
                 //on clicking each item, what action do you want to perform
                 val intent = Intent(this@Home.requireContext(), EachMusic::class.java)
+                intent.putExtra("artist",song.artist)
                 intent.putExtra("title",song.name)
                 intent.putExtra("image",song.image)
                 intent.putExtra("link",song.link)

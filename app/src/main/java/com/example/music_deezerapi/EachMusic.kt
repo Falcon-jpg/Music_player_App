@@ -21,10 +21,12 @@ class EachMusic : AppCompatActivity() {
         binding = ActivityEachMusicBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val artist = intent.getStringExtra("artist")!!
         val name = intent.getStringExtra("title")!!
         val image = intent.getStringExtra("image")!!
         val link = intent.getStringExtra("link")!!
 
+        binding.name1.text = artist
         binding.name.text = name
         Picasso.get().load(image).into(binding.imageView)
 

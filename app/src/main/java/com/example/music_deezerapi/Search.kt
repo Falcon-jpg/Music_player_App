@@ -81,6 +81,7 @@ class Search : Fragment(){
                     override fun onItemClick(position: Int) {
                         //on clicking each item, what action do you want to perform
                         val intent = Intent(this@Search.requireContext(), EachMusic::class.java)
+                        intent.putExtra("artist",dataList[position].artist.name)
                         intent.putExtra("title", dataList[position].title)
                         intent.putExtra("image", dataList[position].album.cover_big)
                         intent.putExtra("link", dataList[position].preview)
